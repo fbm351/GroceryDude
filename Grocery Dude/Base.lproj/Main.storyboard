@@ -67,6 +67,49 @@
             </objects>
             <point key="canvasLocation" x="931" y="56"/>
         </scene>
+        <!--Migration View Controller-->
+        <scene sceneID="20F-hF-Da4">
+            <objects>
+                <viewController storyboardIdentifier="migration" id="7zs-Is-YUF" customClass="FMMigrationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cIm-eX-juu"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ubd-Ru-Ig3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w47-Zz-c6j">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Migration Progress 0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pW6-1n-qZl">
+                                <rect key="frame" x="20" y="254" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gjX-ac-nRs">
+                                <rect key="frame" x="20" y="283" width="280" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gjX-ac-nRs" firstAttribute="centerY" secondItem="w47-Zz-c6j" secondAttribute="centerY" id="AyJ-w4-In9"/>
+                            <constraint firstAttribute="trailing" secondItem="pW6-1n-qZl" secondAttribute="trailing" constant="20" symbolic="YES" id="IOI-ca-gF4"/>
+                            <constraint firstItem="pW6-1n-qZl" firstAttribute="leading" secondItem="w47-Zz-c6j" secondAttribute="leading" constant="20" symbolic="YES" id="TZc-YG-Hdz"/>
+                            <constraint firstItem="gjX-ac-nRs" firstAttribute="leading" secondItem="pW6-1n-qZl" secondAttribute="leading" id="TzM-mj-MgD"/>
+                            <constraint firstItem="gjX-ac-nRs" firstAttribute="top" secondItem="pW6-1n-qZl" secondAttribute="bottom" constant="8" symbolic="YES" id="XwR-yk-yZB"/>
+                            <constraint firstItem="gjX-ac-nRs" firstAttribute="trailing" secondItem="pW6-1n-qZl" secondAttribute="trailing" id="YP5-GC-COq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="progressLabel" destination="pW6-1n-qZl" id="4ez-hP-rDl"/>
+                        <outlet property="progressView" destination="gjX-ac-nRs" id="iYJ-aL-gbL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UkQ-9G-WKT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="521" y="-618"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="HpE-wI-Yrl">
             <objects>

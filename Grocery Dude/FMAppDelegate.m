@@ -8,6 +8,7 @@
 
 #import "FMAppDelegate.h"
 #import "Item.h"
+#import "Amount.h"
 
 @implementation FMAppDelegate
 
@@ -19,12 +20,21 @@
     {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
-    NSArray *fetchedObjects = [_coreDataHelper.context executeFetchRequest:request error:nil];
+
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Amount"];
+    [request setFetchLimit:50];
+    NSError *error = nil;
+    NSArray *fetchedObjects = [_coreDataHelper.context executeFetchRequest:request error:&error];
     
-    for (Item *item in fetchedObjects) {
-        NSLog(@"Deleting Object '%@'", item.name);
-        [_coreDataHelper.context deleteObject:item];
+    if (error)
+    {
+        NSLog(@"%@", error);
+    }
+    else
+    {
+        for (Amount *amount in fetchedObjects) {
+            NSLog(@"Fetched Object = %@", amount.xyz);
+        }
     }
 }
 
