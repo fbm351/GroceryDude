@@ -7,10 +7,26 @@
 //
 
 #import "FMAppDelegate.h"
+#import "Item.h"
 
 @implementation FMAppDelegate
 
 #define debug 1
+
+- (void)demo
+{
+    if (debug == 1)
+    {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
+    NSArray *fetchedObjects = [_coreDataHelper.context executeFetchRequest:request error:nil];
+    
+    for (Item *item in fetchedObjects) {
+        NSLog(@"Deleting Object '%@'", item.name);
+        [_coreDataHelper.context deleteObject:item];
+    }
+}
 
 - (CoreDataHelper *)cdh
 {
@@ -74,6 +90,8 @@
     {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
+    [self cdh];
+    [self demo];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

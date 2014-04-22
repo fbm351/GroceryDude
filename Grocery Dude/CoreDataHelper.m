@@ -101,8 +101,10 @@ NSString *storeFilename = @"Grocery-Dude.sqlite";
         return;
     }
     
+    NSDictionary *options = @{NSSQLitePragmasOption : @{@"journal_mode" : @"DELETE"}};
+    
     NSError *error = nil;
-    _store = [_coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[self storeURL] options:nil error:&error];
+    _store = [_coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[self storeURL] options:options error:&error];
     
     if (!_store)
     {
