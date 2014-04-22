@@ -63,6 +63,7 @@
 		D3F402281906932300EF9879 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D3F4022A19069A8000EF9879 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		D3F4022B19069A8000EF9879 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		D3F4022D1906ECE900EF9879 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -510,6 +511,7 @@
 		D3F402271906932300EF9879 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D3F4022D1906ECE900EF9879 /* Model 2.xcdatamodel */,
 				D3F402281906932300EF9879 /* Model.xcdatamodel */,
 			);
 			currentVersion = D3F402281906932300EF9879 /* Model.xcdatamodel */;
