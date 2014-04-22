@@ -29,6 +29,8 @@
 		D3F402341906F40100EF9879 /* Amount.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F402331906F40100EF9879 /* Amount.m */; };
 		D3F402361906F49900EF9879 /* Model2toModel3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D3F402351906F49900EF9879 /* Model2toModel3.xcmappingmodel */; };
 		D3F4023A1906F90200EF9879 /* FMMigrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F402391906F90200EF9879 /* FMMigrationViewController.m */; };
+		D3F4023E1907094D00EF9879 /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F4023D1907094D00EF9879 /* Unit.m */; };
+		D3F402401907098C00EF9879 /* Model3toModel4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D3F4023F1907098C00EF9879 /* Model3toModel4.xcmappingmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,10 @@
 		D3F402351906F49900EF9879 /* Model2toModel3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model2toModel3.xcmappingmodel; sourceTree = "<group>"; };
 		D3F402381906F90200EF9879 /* FMMigrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMigrationViewController.h; sourceTree = "<group>"; };
 		D3F402391906F90200EF9879 /* FMMigrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMigrationViewController.m; sourceTree = "<group>"; };
+		D3F4023B190708DE00EF9879 /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
+		D3F4023C1907094D00EF9879 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit.h; sourceTree = "<group>"; };
+		D3F4023D1907094D00EF9879 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit.m; sourceTree = "<group>"; };
+		D3F4023F1907098C00EF9879 /* Model3toModel4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model3toModel4.xcmappingmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				D3F402271906932300EF9879 /* Model.xcdatamodeld */,
+				D3F4023C1907094D00EF9879 /* Unit.h */,
+				D3F4023D1907094D00EF9879 /* Unit.m */,
 				D3F402321906F40100EF9879 /* Amount.h */,
 				D3F402331906F40100EF9879 /* Amount.m */,
 				D3F4022E1906EF2500EF9879 /* Measurement.h */,
@@ -200,6 +208,7 @@
 				D3F4022A19069A8000EF9879 /* Item.h */,
 				D3F4022B19069A8000EF9879 /* Item.m */,
 				D3F402351906F49900EF9879 /* Model2toModel3.xcmappingmodel */,
+				D3F4023F1907098C00EF9879 /* Model3toModel4.xcmappingmodel */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -319,8 +328,10 @@
 				D3F402361906F49900EF9879 /* Model2toModel3.xcmappingmodel in Sources */,
 				D3F4023A1906F90200EF9879 /* FMMigrationViewController.m in Sources */,
 				D3F402301906EF2500EF9879 /* Measurement.m in Sources */,
+				D3F4023E1907094D00EF9879 /* Unit.m in Sources */,
 				D3C17B521905AE8700385C0E /* FMViewController.m in Sources */,
 				D3F402341906F40100EF9879 /* Amount.m in Sources */,
+				D3F402401907098C00EF9879 /* Model3toModel4.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,9 +555,10 @@
 			children = (
 				D3F4022D1906ECE900EF9879 /* Model 2.xcdatamodel */,
 				D3F402311906F3AC00EF9879 /* Model 3.xcdatamodel */,
+				D3F4023B190708DE00EF9879 /* Model 4.xcdatamodel */,
 				D3F402281906932300EF9879 /* Model.xcdatamodel */,
 			);
-			currentVersion = D3F402311906F3AC00EF9879 /* Model 3.xcdatamodel */;
+			currentVersion = D3F4023B190708DE00EF9879 /* Model 4.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

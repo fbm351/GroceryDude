@@ -101,7 +101,7 @@ NSString *storeFilename = @"Grocery-Dude.sqlite";
         return;
     }
     
-    BOOL useMigrationManager = YES;
+    BOOL useMigrationManager = NO;
     
     if (useMigrationManager && [self isMigrationNecessaryForStore:[self storeURL]])
     {
@@ -109,7 +109,7 @@ NSString *storeFilename = @"Grocery-Dude.sqlite";
     }
     else
     {
-        NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption : @YES, NSInferMappingModelAutomaticallyOption : @NO, NSSQLitePragmasOption : @{@"journal_mode" : @"DELETE"}};
+        NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption : @YES, NSInferMappingModelAutomaticallyOption : @YES, NSSQLitePragmasOption : @{@"journal_mode" : @"DELETE"}};
         
         NSError *error = nil;
         _store = [_coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[self storeURL] options:options error:&error];
@@ -261,7 +261,7 @@ NSString *storeFilename = @"Grocery-Dude.sqlite";
     {
         NSError *error = nil;
         NSMigrationManager *migrationManager = [[NSMigrationManager alloc] initWithSourceModel:sourceModel destinationModel:destinationModel];
-        [migrationManager addObserver:self forKeyPath:@"migrationManager" options:NSKeyValueObservingOptionNew context:NULL];
+        [migrationManager addObserver:self forKeyPath:@"migrationProgress" options:NSKeyValueObservingOptionNew context:NULL];
         
         NSURL *destinationStore = [[self applicationStoresDirectory] URLByAppendingPathComponent:@"Temp.sqlite"];
         success = [migrationManager migrateStoreFromURL:sourceStore type:NSSQLiteStoreType options:nil withMappingModel:mappingModel toDestinationURL:destinationStore destinationType:NSSQLiteStoreType destinationOptions:nil error:&error];
