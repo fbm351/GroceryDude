@@ -154,6 +154,7 @@ NSString *storeFilename = @"Grocery-Dude.sqlite";
         else
         {
             NSLog(@"Failed to save _context : %@", error);
+            [self showValidationError:error];
         }
     }
     else
@@ -336,6 +337,99 @@ NSString *storeFilename = @"Grocery-Dude.sqlite";
             });
         }
     });
+}
+
+#pragma mark - VALIDATION ERROR HANDLING
+
+- (void)showValidationError:(NSError *)anError
+{
+    if (anError && [anError.domain isEqualToString:@"NSCocoaErrorDomain"])
+    {
+        NSArray *errors = nil;
+        NSString *txt = @"";
+        
+        //Populate array with error (s)
+        if (anError.code == NSValidationMultipleErrorsError)
+        {
+            errors = [anError.userInfo objectForKey:NSDetailedErrorsKey];
+        }
+        else
+        {
+            errors = [NSArray arrayWithObject:anError];
+        }
+        
+        // Display the error(s)
+        if (errors && errors.count > 0)
+        {
+            for (NSError *error in errors)
+            {
+                NSString *entitiy = [[[error.userInfo objectForKey:@"NSValidationErrorObject"]entity]name];
+                NSString *property = [error.userInfo objectForKey:@"NSValidationErrorKey"];
+                
+                switch (error.code)
+                {
+                    case NSValidationRelationshipDeniedDeleteError:
+                        txt = [txt stringByAppendingFormat:@"%@ delete was denied because there are associated %@\n(Error Code %li)\n\n", entitiy, property, (long)error.code];
+                        break;
+                        
+                    case NSValidationRelationshipLacksMinimumCountError:
+                        txt = [txt stringByAppendingFormat:@"the '%@' relationship count is too small (Code %li).", property, (long)error.code];
+                        break;
+                    
+                    case NSValidationRelationshipExceedsMaximumCountError:
+                        txt = [txt stringByAppendingFormat:@"the '%@' relationship count is too large (Code %li).", property, (long)error.code];
+                        break;
+                        
+                    case NSValidationMissingMandatoryPropertyError:
+                        txt = [txt stringByAppendingFormat:@"the '%@' property is missing (Code %li).", property, (long)error.code];
+                        break;
+                        
+                    case NSValidationNumberTooSmallError:
+                        txt = [txt stringByAppendingFormat:@"the '%@' number is too small (Code %li).", property, (long)error.code];
+                        break;
+                        
+                    case NSValidationNumberTooLargeError:
+                        txt = [txt stringByAppendingFormat:@"the '%@' number is too large (Code %li).", property, (long)error.code];
+                        break;
+                        
+                    case NSValidationDateTooSoonError:
+                        txt = [txt stringByAppendingFormat:@"the '%@' date is too soon (Code %li).", property, (long)error.code];
+                        break;
+                        
+                    case NSValidationDateTooLateError:
+                        txt = [txt stringByAppendingFormat:@"the '%@' date is too late (Code %li).", property, (long)error.code];
+                        break;
+                        
+                    case NSValidationInvalidDateError:
+                        txt = [txt stringByAppendingFormat:@"the '%@' date is invalid (Code %li).", property, (long)error.code];
+                        break;
+                        
+                    case NSValidationStringTooLongError:
+                        txt = [txt stringByAppendingFormat:@"the '%@' text is too long (Code %li).", property, (long)error.code];
+                        break;
+                        
+                    case NSValidationStringTooShortError:
+                        txt = [txt stringByAppendingFormat:@"the '%@' text is too short (Code %li).", property, (long)error.code];
+                        break;
+                        
+                    case NSValidationStringPatternMatchingError:
+                        txt = [txt stringByAppendingFormat:@"the '%@' text doesn't match the specified pattern (Code %li).", property, (long)error.code];
+                        break;
+                        
+                    case NSManagedObjectValidationError:
+                        txt = [txt stringByAppendingFormat:@"generated validation error (Code %li)", (long)error.code];
+                        break;
+                        
+                    default:
+                        txt = [txt stringByAppendingFormat:@"Unhandled error code %li in showValidationError method", (long)error.code];
+                        break;
+                }
+            }
+            // display error message txt message
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Validation Error" message:[NSString stringWithFormat:@"%@Please double-tap the home button and close this application by swiping the application screenshot upwards", txt] delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+            [alertView show];
+        }
+    }
 }
 
 @end
