@@ -11,6 +11,7 @@
 #import "Item.h"
 #import "Unit.h"
 #import "FMAppDelegate.h"
+#import "FMItemViewController.h"
 
 @implementation FMPrepareTableViewController
 
@@ -186,6 +187,48 @@
     for (Item *item in shoppingList) {
         item.listed = [NSNumber numberWithBool:NO];
     }
+}
+
+#pragma mark - SEGUE
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if (debug == 1)
+    {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    FMItemViewController *itemVC = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"AddItemSegue"])
+    {
+        CoreDataHelper *cdh = [(FMAppDelegate *)[[UIApplication sharedApplication] delegate] cdh];
+        Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:cdh.context];
+        
+        NSError *error = nil;
+        
+        if (![cdh.context obtainPermanentIDsForObjects:[NSArray arrayWithObject:newItem] error:&error])
+        {
+            NSLog(@"Couldn't obtain a permanent ID for object %@", error);
+        }
+        itemVC.selectedItemID = newItem.objectID;
+    }
+    else
+    {
+        NSLog(@"Unidentified Segue Attempted!");
+    }
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    if (debug == 1)
+    {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    FMItemViewController *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FMItemViewController"];
+    itemVC.selectedItemID = [[self.frc objectAtIndexPath:indexPath] objectID];
+    
+    [self.navigationController pushViewController:itemVC animated:YES];
 }
 
 @end

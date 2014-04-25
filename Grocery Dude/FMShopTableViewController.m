@@ -11,6 +11,7 @@
 #import "Item.h"
 #import "Unit.h"
 #import "FMAppDelegate.h"
+#import "FMItemViewController.h"
 
 @interface FMShopTableViewController ()
 
@@ -145,6 +146,21 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Select items to be removed from the list before pressing Clear" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
     }
+}
+
+#pragma mark - SEGUE
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    if (debug == 1)
+    {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    FMItemViewController *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FMItemViewController"];
+    itemVC.selectedItemID = [[self.frc objectAtIndexPath:indexPath] objectID];
+    
+    [self.navigationController pushViewController:itemVC animated:YES];
 }
 
 

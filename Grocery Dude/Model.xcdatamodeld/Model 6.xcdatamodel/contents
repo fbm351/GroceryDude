@@ -26,11 +26,13 @@
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Item" inverseName="unit" inverseEntity="Item" syncable="YES"/>
     </entity>
     <fetchRequest name="ShoppingList" entity="Item" predicateString="listed == 1"/>
+    <fetchRequest name="UnknownLocationAtHome" entity="LocationAtHome" predicateString="storedIn == &quot;..Unknown Location..&quot;"/>
+    <fetchRequest name="UnknownLocationAtShop" entity="LocationAtShop" predicateString="aisle == &quot;..Unknown Location..&quot;"/>
     <elements>
         <element name="Item" positionX="241" positionY="1529" width="128" height="163"/>
-        <element name="Unit" positionX="412" positionY="1709" width="128" height="73"/>
         <element name="Location" positionX="288" positionY="1305" width="128" height="58"/>
         <element name="LocationAtHome" positionX="430" positionY="1440" width="128" height="73"/>
         <element name="LocationAtShop" positionX="27" positionY="1409" width="128" height="73"/>
+        <element name="Unit" positionX="412" positionY="1709" width="128" height="73"/>
     </elements>
 </model>

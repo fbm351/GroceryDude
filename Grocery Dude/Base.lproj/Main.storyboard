@@ -4,20 +4,76 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Item-->
+        <!--Item View Controller - Item-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="FMViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FMItemViewController" id="vXZ-lx-hvc" customClass="FMItemViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wpr-U0-zFn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gv7-ub-mMo">
+                                        <rect key="frame" x="20" y="20" width="280" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="4Cg-aE-yTs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Qty" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k9I-Za-lSU">
+                                        <rect key="frame" x="20" y="76" width="60" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="4pM-jw-CCF"/>
+                                            <constraint firstAttribute="height" constant="48" id="OSk-gn-82k"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="decimalPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Gv7-ub-mMo" firstAttribute="centerX" secondItem="Wpr-U0-zFn" secondAttribute="centerX" id="48b-5t-GwM"/>
+                                    <constraint firstAttribute="bottom" secondItem="k9I-Za-lSU" secondAttribute="bottom" constant="380" id="Aig-MV-eUM"/>
+                                    <constraint firstItem="k9I-Za-lSU" firstAttribute="top" secondItem="Gv7-ub-mMo" secondAttribute="bottom" constant="8" symbolic="YES" id="CUP-hm-6x3"/>
+                                    <constraint firstItem="Gv7-ub-mMo" firstAttribute="leading" secondItem="k9I-Za-lSU" secondAttribute="leading" id="Szo-vW-ZEb"/>
+                                    <constraint firstItem="Gv7-ub-mMo" firstAttribute="top" secondItem="Wpr-U0-zFn" secondAttribute="top" constant="20" symbolic="YES" id="afZ-Nn-HkX"/>
+                                    <constraint firstItem="Gv7-ub-mMo" firstAttribute="leading" secondItem="Wpr-U0-zFn" secondAttribute="leading" constant="20" symbolic="YES" id="esd-em-cqh"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gv7-ub-mMo" secondAttribute="trailing" constant="20" symbolic="YES" id="zaq-gk-6To"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Wpr-U0-zFn" secondAttribute="bottom" id="315-i7-R99"/>
+                            <constraint firstAttribute="trailing" secondItem="Wpr-U0-zFn" secondAttribute="trailing" id="OGm-1h-AZd"/>
+                            <constraint firstItem="Wpr-U0-zFn" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Vdq-aW-o0b"/>
+                            <constraint firstItem="Wpr-U0-zFn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="y3G-F4-ETe"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Item" id="JwJ-J5-SrO"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Item" id="JwJ-J5-SrO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ksY-sF-USK">
+                            <connections>
+                                <action selector="done:" destination="vXZ-lx-hvc" id="PWZ-Wj-Ria"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="Gv7-ub-mMo" id="3oQ-Oh-arW"/>
+                        <outlet property="quantityTextField" destination="k9I-Za-lSU" id="ByH-jT-pCj"/>
+                        <outlet property="scrollView" destination="Wpr-U0-zFn" id="Oum-mo-m8h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

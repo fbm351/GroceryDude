@@ -24,6 +24,7 @@
 		D3C17B711905B0DE00385C0E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C17B701905B0DE00385C0E /* CoreData.framework */; };
 		D3C17B751905B17200385C0E /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C17B741905B17200385C0E /* CoreDataHelper.m */; };
 		D3D4B890190A8CF700B6AB11 /* FMShopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D4B88F190A8CF700B6AB11 /* FMShopTableViewController.m */; };
+		D3D4B893190AAE7700B6AB11 /* FMItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D4B892190AAE7700B6AB11 /* FMItemViewController.m */; };
 		D3F402291906932300EF9879 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3F402271906932300EF9879 /* Model.xcdatamodeld */; };
 		D3F402301906EF2500EF9879 /* Measurement.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F4022F1906EF2500EF9879 /* Measurement.m */; };
 		D3F402341906F40100EF9879 /* Amount.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F402331906F40100EF9879 /* Amount.m */; };
@@ -74,6 +75,8 @@
 		D3C17B741905B17200385C0E /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		D3D4B88E190A8CF700B6AB11 /* FMShopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMShopTableViewController.h; sourceTree = "<group>"; };
 		D3D4B88F190A8CF700B6AB11 /* FMShopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMShopTableViewController.m; sourceTree = "<group>"; };
+		D3D4B891190AAE7700B6AB11 /* FMItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMItemViewController.h; sourceTree = "<group>"; };
+		D3D4B892190AAE7700B6AB11 /* FMItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMItemViewController.m; sourceTree = "<group>"; };
 		D3F402281906932300EF9879 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D3F4022D1906ECE900EF9879 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		D3F4022E1906EF2500EF9879 /* Measurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Measurement.h; sourceTree = "<group>"; };
@@ -242,6 +245,8 @@
 			children = (
 				D3F402381906F90200EF9879 /* FMMigrationViewController.h */,
 				D3F402391906F90200EF9879 /* FMMigrationViewController.m */,
+				D3D4B891190AAE7700B6AB11 /* FMItemViewController.h */,
+				D3D4B892190AAE7700B6AB11 /* FMItemViewController.m */,
 			);
 			name = "Grocery Dude View Controllers";
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				D3F4028B19083D2600EF9879 /* CoreDataTableViewController.m in Sources */,
 				D3F4027919083A3C00EF9879 /* Item.m in Sources */,
 				D3C17B481905AE8700385C0E /* main.m in Sources */,
+				D3D4B893190AAE7700B6AB11 /* FMItemViewController.m in Sources */,
 				D3C17B4C1905AE8700385C0E /* FMAppDelegate.m in Sources */,
 				D3F4028219083A3C00EF9879 /* LocationAtShop.m in Sources */,
 				D3F4027F19083A3C00EF9879 /* LocationAtHome.m in Sources */,
